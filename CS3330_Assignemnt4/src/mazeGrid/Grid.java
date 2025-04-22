@@ -48,5 +48,20 @@ public class Grid {
 	public Cell[][] getCells(){
 		return cells;
 	}
+	
+	public void printGrid(int agentRow, int agentCol) {
+		for(int i=0; i<size; i++) {
+			for(int j=0; j<size; j++) {
+				if(i == agentRow && j == agentCol) {
+					System.out.print("A ");
+				}else if (j == 0 && cells[i][j].getLeft() == Component.EXIT) {
+					System.out.print("E ");
+				}else {
+					System.out.print("S ");
+				}
+			}
+			System.out.println();
+		}
+	}
 
 }
