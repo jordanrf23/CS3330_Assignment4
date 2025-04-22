@@ -1,4 +1,4 @@
-package mazeGrid;
+package game;
 
 public class Cell {
 	

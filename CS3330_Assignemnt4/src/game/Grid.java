@@ -1,4 +1,4 @@
-package mazeGrid;
+package game;
 
 import java.util.Random;
 
