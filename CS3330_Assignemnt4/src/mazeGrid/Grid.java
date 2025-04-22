@@ -63,5 +63,39 @@ public class Grid {
 			System.out.println();
 		}
 	}
+	
+	public boolean moveAgent(String direction, Agent agent) {
+		int row = agent.getRow();
+		int col = agent.getCol();
+		Cell current = cells[row][col];
+		
+		switch(direction.toUpperCase()) {
+			case "UP": 
+				if(row > 0 && current.getUp() != Component.WALL) {
+					agent.setPosition(row - 1, col);
+					return true;
+				}
+				break;
+			case "LEFT":
+				if(col == 0 && current.getLeft() == Component.EXIT) {
+					System.out.println("agent left the grid");
+					return false;
+				}else if(col > 0 && current.getLeft() != Component.WALL) {
+					agent.setPosition(row, col - 1);
+					return true;
+				}
+				break;
+			case "RIGHT":
+				if(col < size -1 && current.getRight() != Component.WALL) {
+					agent.setPosition(row, col + 1);
+					return true;
+				}
+				break;
+			default:
+				System.out.println("Invaild ask. Use UP, DOWN, LEFT, RIGHT");
+			}
+		return true;
+	
+	}
 
 }
